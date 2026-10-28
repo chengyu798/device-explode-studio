@@ -1,0 +1,239 @@
+{
+  "profile": "iphone17-a3527-v4.5",
+  "blender_version": "5.2.3 LTS",
+  "components": [
+    "enclosure",
+    "back_glass",
+    "back_glass_adhesive",
+    "display",
+    "display_adhesive",
+    "rear_camera",
+    "front_camera",
+    "logic_board",
+    "battery",
+    "top_speaker",
+    "bottom_speaker",
+    "taptic_engine",
+    "main_microphone",
+    "usb_c_connector",
+    "sim_assembly",
+    "sim_tray",
+    "display_connector_cowling",
+    "battery_connector_cowling",
+    "camera_connector_cowling",
+    "front_camera_connector_cowling",
+    "logic_board_connector_cowling",
+    "back_glass_connector_cowling",
+    "top_speaker_grille",
+    "battery_spacer",
+    "logic_board_spacer"
+  ],
+  "body": {
+    "non_manifold_edges": 0,
+    "loose_vertices": 0,
+    "signed_volume_mm3": 17123.356268293508
+  },
+  "controls": [
+    {
+      "object": "I17_Side_Rounded_Button",
+      "center_yz_mm": [
+        26.18500031530857,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.43999856710434,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 24.601994580479392
+    },
+    {
+      "object": "I17_Side_Precision_Reveal",
+      "center_yz_mm": [
+        26.18500031530857,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 7.768269793526534
+    },
+    {
+      "object": "I17_Camera_Control_Rounded_Button",
+      "center_yz_mm": [
+        -30.105000361800194,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.05000165104866,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 7.7122024106231235
+    },
+    {
+      "object": "I17_Camera_Control_Precision_Reveal",
+      "center_yz_mm": [
+        -30.105000361800194,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 8.630636895543013
+    },
+    {
+      "object": "I17_Action_Rounded_Button",
+      "center_yz_mm": [
+        47.43500053882599,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.43999856710434,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 9.088991965126976
+    },
+    {
+      "object": "I17_Action_Precision_Reveal",
+      "center_yz_mm": [
+        47.43499867618084,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 2.940707503008494
+    },
+    {
+      "object": "I17_Volume_Up_Rounded_Button",
+      "center_yz_mm": [
+        33.28500036150217,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.43999856710434,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 15.265466898005826
+    },
+    {
+      "object": "I17_Volume_Up_Precision_Reveal",
+      "center_yz_mm": [
+        33.284999430179596,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 4.862792269469305
+    },
+    {
+      "object": "I17_Volume_Down_Rounded_Button",
+      "center_yz_mm": [
+        19.08500026911497,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.43999856710434,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 15.265464766557075
+    },
+    {
+      "object": "I17_Volume_Down_Precision_Reveal",
+      "center_yz_mm": [
+        19.08500026911497,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 4.862792641344181
+    },
+    {
+      "object": "I17_China_Dual_SIM_Tray_Cap",
+      "center_yz_mm": [
+        -45.8849985152483,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.03000056743622,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 5.970839977330404
+    },
+    {
+      "object": "I17_China_Dual_SIM_Tray_Seam",
+      "center_yz_mm": [
+        -45.88500037789345,
+        0.0
+      ],
+      "outer_abs_x_mm": 39.009999483823776,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "signed_volume_mm3": 5.826361116817242
+    }
+  ],
+  "bottom_openings": [
+    {
+      "center_mm": -23.575,
+      "width_mm": 1.525
+    },
+    {
+      "center_mm": -21.35,
+      "width_mm": 1.5250000000000035
+    },
+    {
+      "center_mm": -19.074999999999996,
+      "width_mm": 1.5250000000000035
+    },
+    {
+      "center_mm": -16.824999999999996,
+      "width_mm": 1.5250000000000035
+    },
+    {
+      "center_mm": -14.575,
+      "width_mm": 1.5249999999999981
+    },
+    {
+      "center_mm": -12.325,
+      "width_mm": 1.5249999999999981
+    },
+    {
+      "center_mm": 8.881784197001252e-16,
+      "width_mm": 8.974999999999998
+    },
+    {
+      "center_mm": 12.300000000000004,
+      "width_mm": 1.5249999999999981
+    },
+    {
+      "center_mm": 14.575000000000003,
+      "width_mm": 1.5249999999999981
+    },
+    {
+      "center_mm": 16.825000000000003,
+      "width_mm": 1.525
+    },
+    {
+      "center_mm": 19.075000000000003,
+      "width_mm": 1.525
+    },
+    {
+      "center_mm": 21.325000000000003,
+      "width_mm": 1.525
+    },
+    {
+      "center_mm": 23.575000000000003,
+      "width_mm": 1.525
+    }
+  ],
+  "screw_recess": [
+    {
+      "x_mm": -6.93,
+      "recess_probes_clear": 5
+    },
+    {
+      "x_mm": 6.92,
+      "recess_probes_clear": 5
+    }
+  ],
+  "frame_160_offsets_match": true,
+  "archives_excluded": true,
+  "axes": "+Y top / +Z display; metres",
+  "internal_geometry": "Estimated; not measured CAD",
+  "glb_bytes": 13706252
+}

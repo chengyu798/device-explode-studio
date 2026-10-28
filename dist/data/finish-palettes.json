@@ -1,0 +1,29 @@
+{
+  "silver": {"label":"银色","roles":{
+    "metal":{"color":"#d1d3d5","metalness":1,"roughness":0.32},
+    "back":{"color":"#eaeae8","metalness":0,"roughness":0.31},
+    "barrel":{"color":"#c2c5c8","metalness":1,"roughness":0.25},
+    "rim":{"color":"#dee0e3","metalness":1,"roughness":0.14},
+    "logo":{"color":"#c5c9c5","metalness":0.28,"roughness":0.33},
+    "antenna":{"color":"#b5b8bb","metalness":0,"roughness":0.55},
+    "control":{"color":"#d2d4d5","metalness":0.12,"roughness":0.28}
+  }},
+  "orange": {"label":"星宇橙色","roles":{
+    "metal":{"color":"#df873b","metalness":1,"roughness":0.31},
+    "back":{"color":"#e99145","metalness":0,"roughness":0.29},
+    "barrel":{"color":"#ce7934","metalness":1,"roughness":0.26},
+    "rim":{"color":"#efae70","metalness":1,"roughness":0.19},
+    "logo":{"color":"#b96825","metalness":0.28,"roughness":0.33},
+    "antenna":{"color":"#bd7135","metalness":0,"roughness":0.55},
+    "control":{"color":"#d17a30","metalness":0.12,"roughness":0.28}
+  }},
+  "blue": {"label":"深蓝色","roles":{
+    "metal":{"color":"#39435b","metalness":1,"roughness":0.35},
+    "back":{"color":"#4a526a","metalness":0,"roughness":0.34},
+    "barrel":{"color":"#30384d","metalness":1,"roughness":0.29},
+    "rim":{"color":"#4b5771","metalness":1,"roughness":0.22},
+    "logo":{"color":"#30374b","metalness":0.28,"roughness":0.33},
+    "antenna":{"color":"#586176","metalness":0,"roughness":0.55},
+    "control":{"color":"#343d55","metalness":0.12,"roughness":0.31}
+  }}
+}

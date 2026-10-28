@@ -1,0 +1,72 @@
+{
+  "id": "iphone17-a3527-v4.5",
+  "scene": "iPhone 17 Pro Max | A3527 Remodel",
+  "model_file": "iphone17-pro-max-a3527-button-fix.glb",
+  "component_count": 25,
+  "collections": [
+    "I17_01_Assemblies",
+    "I17_02_Model",
+    "I17_03_Markings",
+    "I17_04_Exterior_Refined",
+    "I17_05_Realism",
+    "I17_06_Finish_Bottom_Audit"
+  ],
+  "body": "I17_R4_Continuous_Unibody_Audited",
+  "frame_width_mm": 77.98,
+  "acoustic_x_mm": [
+    -23.58,
+    -21.34,
+    -19.08,
+    -16.83,
+    -14.57,
+    -12.32,
+    12.31,
+    14.57,
+    16.82,
+    19.08,
+    21.33,
+    23.58
+  ],
+  "screw_x_mm": [
+    -6.93,
+    6.92
+  ],
+  "controls": [
+    {
+      "name": "Side",
+      "side": 1,
+      "y_mm": 26.185,
+      "outer_x_mm": 39.44
+    },
+    {
+      "name": "Camera_Control",
+      "side": 1,
+      "y_mm": -30.105,
+      "outer_x_mm": 39.05
+    },
+    {
+      "name": "Action",
+      "side": -1,
+      "y_mm": 47.435,
+      "outer_x_mm": 39.44
+    },
+    {
+      "name": "Volume_Up",
+      "side": -1,
+      "y_mm": 33.285,
+      "outer_x_mm": 39.44
+    },
+    {
+      "name": "Volume_Down",
+      "side": -1,
+      "y_mm": 19.085,
+      "outer_x_mm": 39.44
+    },
+    {
+      "name": "China_Dual_SIM_Tray",
+      "side": -1,
+      "y_mm": -45.885,
+      "outer_x_mm": 39.03
+    }
+  ]
+}

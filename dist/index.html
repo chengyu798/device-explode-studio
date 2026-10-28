@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101214">
+  <meta name="description" content="探索国行 iPhone 17 Pro Max A3527 的内部结构。基于 Apple 维修资料的交互式结构复原，内部尺寸为估算。">
+  <title>INSIDE 17 — iPhone 拆解实验室</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23121416'/%3E%3Cpath d='M15 12h18v24H15z' stroke='%23f28b51' fill='none' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/"}}</script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Inside 17 首页"><span class="brand-mark">▱</span> INSIDE<span class="brand-17">17</span><span class="brand-divider"></span><span class="brand-caption">拆解实验室</span></a>
+    <span class="edition"><span class="status-dot"></span> A3527 <span class="muted">/</span> 中国大陆版</span>
+    <button id="export" class="export-button" aria-label="导出拆解图"><span data-icon="download"></span><span>导出拆解图</span></button>
+  </header>
+  <main class="workspace">
+    <section class="stage" aria-label="交互式三维拆解视图">
+      <div class="hero"><p class="eyebrow">EXPLORE WHAT'S INSIDE</p><h1>iPhone 17<br><span>Pro Max.</span></h1><p class="hero-caption">从整机，到每一层结构。</p><div class="hero-badges"><span>国行 · 双 nano-SIM</span><span>结构复原</span></div></div>
+      <div class="viewport-meta"><span class="crosshair">+</span><span>3D STRUCTURE STUDY</span><span class="meta-line"></span><span id="component-count">— ASSEMBLIES</span></div>
+      <div id="viewport"><div id="loading" role="status"><span class="loader"></span>正在构建三维结构…</div><div id="labels" aria-label="零件标注"></div></div>
+      <div class="view-tools" aria-label="视图工具">
+        <button id="reset" class="icon-button" title="复位视角" aria-label="复位视角"><span data-icon="reset"></span></button>
+        <button id="labels-toggle" class="icon-button active" title="切换标注" aria-label="切换标注" aria-pressed="true"><span data-icon="tag"></span></button>
+        <button id="rotate-toggle" class="icon-button" title="自动旋转" aria-label="自动旋转" aria-pressed="false"><span data-icon="rotate"></span></button>
+        <span class="tool-separator"></span>
+        <button id="front-view" class="text-tool" title="正面视图">正</button><button id="back-view" class="text-tool" title="背面视图">背</button><button id="bottom-view" class="text-tool" title="底部孔位视图" aria-label="底部孔位视图">底</button>
+        <button id="left-view" class="text-tool" title="左侧按键视图" aria-label="左侧按键视图">左</button><button id="right-view" class="text-tool" title="右侧按键视图" aria-label="右侧按键视图">右</button>
+      </div>
+      <div class="finish-picker"><span>机身配色</span><button class="swatch" data-finish="orange" style="--swatch:#db8450" aria-label="星宇橙色" aria-pressed="false"></button><button class="swatch active" data-finish="silver" style="--swatch:#cdd0d3" aria-label="银色" aria-pressed="true"></button><button class="swatch" data-finish="blue" style="--swatch:#354d72" aria-label="深蓝色" aria-pressed="false"></button></div>
+      <div class="stage-hint"><span data-icon="mouse"></span><span>拖动旋转 · 滚轮缩放 · 点击零件</span></div>
+      <a class="mobile-index-link" href="#component-inspector">零件目录 ↓</a>
+      <div class="timeline">
+        <div class="timeline-top"><div><span class="eyebrow">EXPLODED VIEW</span><span class="timeline-title">拆解程度</span></div><div class="presets"><button data-stage="0" class="active">整机</button><button data-stage="0.22">打开屏幕</button><button data-stage="0.68">结构展开</button><button data-stage="1">完全展开</button></div><span class="percent"><span id="explode-value">0</span><small>%</small></span></div>
+        <div class="range-row"><span>装配</span><input id="explode" type="range" min="0" max="100" value="0" aria-label="拆解程度" style="--progress:0%"><span>展开</span></div>
+        <p class="accuracy-note"><span class="estimate-dot"></span>基于官方维修资料的简化结构复原；内部尺寸、细节与展开距离为估算，不作维修顺序或实测 CAD 使用。</p>
+      </div>
+    </section>
+    <aside id="component-inspector" class="inspector" aria-label="零件与参考资料">
+      <div class="inspector-tabs" role="tablist"><button class="active" id="parts-tab" role="tab" aria-selected="true" aria-controls="parts-panel">零件结构 <span id="parts-count">—</span></button><button id="sources-tab" role="tab" aria-selected="false" aria-controls="sources-panel">资料与精度</button></div>
+      <div id="parts-panel" role="tabpanel" aria-labelledby="parts-tab">
+        <div class="inspector-heading"><p class="eyebrow">COMPONENT INDEX</p><h2>深入每一个组件<span>↘</span></h2><p>选择零件，查看它在整机中的位置。</p></div>
+        <label class="search"><span data-icon="search"></span><input id="search" type="search" placeholder="查找屏幕、电池、主板…" aria-label="查找零件"><kbd>/</kbd></label>
+        <div id="part-list" class="part-list" aria-label="组件列表"></div>
+        <p id="no-results" class="no-results" hidden>没有匹配的零件。</p>
+        <div class="detail" id="detail"><div class="detail-id">SELECT A COMPONENT</div><h3>从外部，走进内部。</h3><p>在三维视图或组件列表中选择零件，查看说明、参考依据和几何估算范围。</p><div class="detail-footer"><span class="estimate-dot"></span>所有内部几何均未经实物测量</div></div>
+      </div>
+      <div id="sources-panel" role="tabpanel" aria-labelledby="sources-tab" hidden>
+        <div class="inspector-heading"><p class="eyebrow">REFERENCE & ACCURACY</p><h2>结构有据，估算可见。</h2><p>这里记录模型的来源与适用范围。</p></div>
+        <div class="source-body"><div class="source-status"><span class="estimate-dot"></span>结构展示用复原 · 非实测模型</div><h3>已核实的整机信息</h3><dl class="specs"><div><dt>型号</dt><dd>A3527 · 中国大陆</dd></div><div><dt>SIM</dt><dd>双 nano-SIM</dd></div><div><dt>标称高度</dt><dd>163.4 mm</dd></div><div><dt>标称宽度</dt><dd>78.0 mm</dd></div><div><dt>标称厚度</dt><dd>8.75 mm</dd></div></dl><p class="source-small">尺寸来自 Apple 中国技术规格；摄像头凸起、圆角和局部轮廓另作近似。</p><h3>模型如何重建</h3><p>主要组件的位置与层叠关系参考官方内部视图、爆炸图和实体 SIM 版维修照片。可见轮廓经简化重建，厚度、孔深、排线、隐藏表面及板级元件分布为估算或示意。</p><p>电池与托盘作为一个维修组件展示。机壳的摄像头平台采用简化外形；无线充电组件归入背部玻璃组件。未加入美版毫米波组件。</p><h3>原始资料 <span>↗</span></h3><a class="source-link" href="https://support.apple.com/en-my/124264" target="_blank" rel="noopener">Apple 内部视图与爆炸图<span>↗</span></a><a class="source-link" href="https://support.apple.com/en-my/123387" target="_blank" rel="noopener">Apple 电池维修 · pSIM 分支<span>↗</span></a><a class="source-link" href="https://support.apple.com/en-my/123395" target="_blank" rel="noopener">Apple 主板维修 · 非毫米波分支<span>↗</span></a><a class="source-link" href="https://support.apple.com/zh-cn/125091" target="_blank" rel="noopener">Apple 中国技术规格<span>↗</span></a><a class="source-link" href="./data/model-notes.json" target="_blank" rel="noopener">组件几何与估算记录<span>↗</span></a><p class="source-small">独立结构研究项目，与 Apple 无隶属关系。展开动画用于观察结构，不代表实际拆卸步骤。</p></div>
+      </div>
+      <div class="inspector-footer"><span class="status-dot"></span><span>外观精修 · 2026.10.26</span><span>v4.5</span></div>
+    </aside>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

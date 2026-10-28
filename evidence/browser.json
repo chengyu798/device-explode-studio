@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "components": 25,
+  "default_assembled": true,
+  "finishes": {
+    "silver": {
+      "logo": {
+        "color": "#c5c9c5",
+        "roughness": 0.33,
+        "metalness": 0.28
+      },
+      "back": {
+        "color": "#eaeae8",
+        "roughness": 0.31,
+        "metalness": 0
+      },
+      "metal": {
+        "color": "#d1d3d5",
+        "roughness": 0.32,
+        "metalness": 1
+      },
+      "antenna": {
+        "color": "#b5b8bb",
+        "roughness": 0.55,
+        "metalness": 0
+      },
+      "control": {
+        "color": "#d2d4d5",
+        "roughness": 0.28,
+        "metalness": 0.12
+      },
+      "barrel": {
+        "color": "#c2c5c8",
+        "roughness": 0.25,
+        "metalness": 1
+      },
+      "rim": {
+        "color": "#dee0e3",
+        "roughness": 0.14,
+        "metalness": 1
+      }
+    },
+    "orange": {
+      "logo": {
+        "color": "#b96825",
+        "roughness": 0.33,
+        "metalness": 0.28
+      },
+      "back": {
+        "color": "#e99145",
+        "roughness": 0.29,
+        "metalness": 0
+      },
+      "metal": {
+        "color": "#df873b",
+        "roughness": 0.31,
+        "metalness": 1
+      },
+      "antenna": {
+        "color": "#bd7135",
+        "roughness": 0.55,
+        "metalness": 0
+      },
+      "control": {
+        "color": "#d17a30",
+        "roughness": 0.28,
+        "metalness": 0.12
+      },
+      "barrel": {
+        "color": "#ce7934",
+        "roughness": 0.26,
+        "metalness": 1
+      },
+      "rim": {
+        "color": "#efae70",
+        "roughness": 0.19,
+        "metalness": 1
+      }
+    },
+    "blue": {
+      "logo": {
+        "color": "#30374b",
+        "roughness": 0.33,
+        "metalness": 0.28
+      },
+      "back": {
+        "color": "#4a526a",
+        "roughness": 0.34,
+        "metalness": 0
+      },
+      "metal": {
+        "color": "#39435b",
+        "roughness": 0.35,
+        "metalness": 1
+      },
+      "antenna": {
+        "color": "#586176",
+        "roughness": 0.55,
+        "metalness": 0
+      },
+      "control": {
+        "color": "#343d55",
+        "roughness": 0.31,
+        "metalness": 0.12
+      },
+      "barrel": {
+        "color": "#30384d",
+        "roughness": 0.29,
+        "metalness": 1
+      },
+      "rim": {
+        "color": "#4b5771",
+        "roughness": 0.22,
+        "metalness": 1
+      }
+    }
+  },
+  "frontmost_control_rays": [
+    {
+      "expected": "I17_Side_Rounded_Button",
+      "actual": "I17_Side_Rounded_Button",
+      "x": 39.439998626708984,
+      "expected_x": 39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Camera_Control_Rounded_Button",
+      "actual": "I17_Camera_Control_Rounded_Button",
+      "x": 39.05000305175781,
+      "expected_x": 39.05,
+      "role": "control"
+    },
+    {
+      "expected": "I17_Action_Rounded_Button",
+      "actual": "I17_Action_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Volume_Up_Rounded_Button",
+      "actual": "I17_Volume_Up_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Volume_Down_Rounded_Button",
+      "actual": "I17_Volume_Down_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_China_Dual_SIM_Tray_Cap",
+      "actual": "I17_China_Dual_SIM_Tray_Cap",
+      "x": -39.029998779296875,
+      "expected_x": -39.03,
+      "role": "metal"
+    }
+  ],
+  "logo_rays": [
+    {
+      "expected": "I17_R3_Photo_Traced_Logo_0",
+      "actual": "I17_R3_Photo_Traced_Logo_0"
+    },
+    {
+      "expected": "I17_R3_Photo_Traced_Logo_1",
+      "actual": "I17_R3_Photo_Traced_Logo_1"
+    }
+  ],
+  "silver_roundtrip": true,
+  "explode_isolate_hide_search_reset": true,
+  "png_export": true,
+  "mobile": true,
+  "audit_images_loaded": true,
+  "external_requests": [],
+  "page_errors": []
+}

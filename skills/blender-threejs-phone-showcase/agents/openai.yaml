@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender 手机展示网页"
+  short_description: "从 Blender 模型复现可离线使用的 Three.js 手机展示、配色和拆解交互"
+  default_prompt: "使用 $blender-threejs-phone-showcase 生成与已验收模型一致的本地手机展示网页，并验证配色、按键与底部开孔。"

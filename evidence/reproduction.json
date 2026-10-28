@@ -1,0 +1,17 @@
+{
+  "skill": "blender-threejs-phone-showcase",
+  "profile": "iphone17-a3527-v4.5",
+  "verified_on": "2026-10-28",
+  "replay_paths": [
+    "repository generated project",
+    "isolated temporary project"
+  ],
+  "model_sha256": "7a09a20f8013ecd044313363f6432eaa37dd8435d5fdb6d651ab3216eed685f2",
+  "all_three_glbs_byte_identical": true,
+  "compared_views": 12,
+  "all_compared_screenshots_pixel_identical": true,
+  "fresh_native_seed_export_passed": true,
+  "existing_output_refused": true,
+  "original_native_source_preserved": true,
+  "scope": "Reproduce the accepted model using included seed and template; not autonomous from-scratch CAD generation."
+}

@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "comparison": "Current accepted v4.5 viewer vs skill-generated and re-exported viewer; same Chrome, viewport and reduced motion.",
+  "views": [
+    {
+      "view": "silver-back.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "silver-bottom.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "silver-right.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "orange-back.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "orange-bottom.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "orange-right.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "blue-back.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "blue-bottom.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "blue-right.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "silver-left.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "exploded.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    },
+    {
+      "view": "mobile.png",
+      "mean_absolute_channel_error": 0.0,
+      "fraction_pixels_difference_over_8": 0.0
+    }
+  ],
+  "limit_mean_error": 1,
+  "limit_fraction_pixels_over_8": 0.02
+}

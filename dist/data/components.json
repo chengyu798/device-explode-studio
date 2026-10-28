@@ -1,0 +1,224 @@
+{
+  "device": "iPhone 17 Pro Max",
+  "region": "CN",
+  "stage": "interactive_reconstruction",
+  "source": "https://support.apple.com/en-my/124264",
+  "source_section": "Exploded view",
+  "note": "参考编号不是拆卸顺序。未核验几何；地区差异须在建模前确认。此表不包含所有螺丝、排线或板级元件。",
+  "geometry_status": "estimated_reference_reconstruction",
+  "parts": [
+    {
+      "reference_number": 1,
+      "id": "display",
+      "label": "显示屏",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 2,
+      "id": "display_adhesive",
+      "label": "显示屏胶条",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 3,
+      "id": "display_connector_cowling",
+      "label": "显示屏连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 4,
+      "id": "battery_connector_cowling",
+      "label": "电池连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 5,
+      "id": "battery",
+      "label": "电池",
+      "variant_check_required": false,
+      "selected_service_part_number": "661-56049",
+      "selected_variant": "physical_SIM",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 6,
+      "id": "top_speaker_grille",
+      "label": "顶部扬声器格栅",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 7,
+      "id": "top_speaker",
+      "label": "顶部扬声器",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 8,
+      "id": "camera_connector_cowling",
+      "label": "后置摄像头连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 9,
+      "id": "battery_spacer",
+      "label": "电池间隔件",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 10,
+      "id": "rear_camera",
+      "label": "后置摄像头组件",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 11,
+      "id": "front_camera_connector_cowling",
+      "label": "前置摄像头连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 12,
+      "id": "front_camera",
+      "label": "前置摄像头组件",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 13,
+      "id": "logic_board_connector_cowling",
+      "label": "主板连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 14,
+      "id": "logic_board_spacer",
+      "label": "主板间隔件",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 15,
+      "id": "bottom_speaker",
+      "label": "底部扬声器",
+      "variant_check_required": false,
+      "selected_service_part_number": "923-13580",
+      "selected_variant": "physical_SIM",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 16,
+      "id": "logic_board",
+      "label": "主板",
+      "variant_check_required": true,
+      "service_part_numbers_by_capacity": {
+        "256GB": "CH661-55960",
+        "512GB": "CH661-55961",
+        "1TB": "CH661-55962",
+        "2TB": "CH661-55963"
+      },
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 17,
+      "id": "taptic_engine",
+      "label": "Taptic Engine",
+      "variant_check_required": false,
+      "selected_service_part_number": "923-13583",
+      "selected_variant": "physical_SIM",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 18,
+      "id": "mmwave_connector_cowling",
+      "label": "毫米波连接器盖板",
+      "variant_check_required": true,
+      "applicability": "pending_hardware_confirmation",
+      "note": "A3527 官方规格列出 sub-6 GHz。此通用爆炸图项目不能直接当作国行必备部件；须核对非毫米波维修图或实物。"
+    },
+    {
+      "reference_number": 19,
+      "id": "main_microphone",
+      "label": "主麦克风",
+      "variant_check_required": false,
+      "selected_service_part_number": "923-13582",
+      "selected_variant": "physical_SIM",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 20,
+      "id": "usb_c_connector",
+      "label": "USB-C 接口组件",
+      "variant_check_required": true,
+      "selected_variant": "physical_SIM",
+      "service_part_numbers_by_finish": {
+        "silver": "923-13585",
+        "cosmic_orange": "923-13586",
+        "deep_blue": "923-13587"
+      },
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 21,
+      "id": "enclosure",
+      "label": "机壳",
+      "variant_check_required": true,
+      "service_part_numbers_by_finish": {
+        "silver": "CH923-13782",
+        "cosmic_orange": "CH923-13783",
+        "deep_blue": "CH923-13784"
+      },
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 22,
+      "id": "back_glass_connector_cowling",
+      "label": "背部玻璃连接器盖板",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 23,
+      "id": "back_glass_adhesive",
+      "label": "背部玻璃胶条",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "reference_number": 24,
+      "id": "back_glass",
+      "label": "背部玻璃",
+      "geometry_status": "estimated_reference_reconstruction"
+    }
+  ],
+  "model_number": "A3527",
+  "sim_configuration": "dual_nano_sim",
+  "region_sources": [
+    "https://support.apple.com/zh-cn/108044",
+    "https://support.apple.com/zh-cn/125091"
+  ],
+  "variant_selection_note": "按官方维修资料的 physical SIM 分支选部件；选定分支不代表已经核验几何。颜色及容量尚未选定。",
+  "nominal_body_dimensions_mm": {
+    "height": 163.4,
+    "width": 78.0,
+    "depth": 8.75,
+    "source": "https://support.apple.com/zh-cn/125091",
+    "note": "官方技术规格标称尺寸；摄像头凸起和局部轮廓仍须单独核对尺寸图。"
+  },
+  "supplemental_parts": [
+    {
+      "id": "sim_assembly",
+      "label": "实体 SIM 组件",
+      "source_section": "Internal view, item 9",
+      "geometry_status": "estimated_reference_reconstruction"
+    },
+    {
+      "id": "sim_tray",
+      "label": "SIM 卡托",
+      "source_section": "Orderable parts",
+      "service_part_numbers_by_finish": {
+        "silver": "923-13650",
+        "cosmic_orange": "923-13651",
+        "deep_blue": "923-13652"
+      },
+      "geometry_status": "estimated_reference_reconstruction"
+    }
+  ],
+  "accuracy_scope": "用户接受参考图结构重建；未经实物测量的内部几何为估算。",
+  "implementation": "iphone-teardown/dist/model.js"
+}

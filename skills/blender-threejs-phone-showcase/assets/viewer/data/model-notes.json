@@ -1,0 +1,248 @@
+{
+  "device": "iPhone 17 Pro Max",
+  "model": "A3527",
+  "region": "China mainland",
+  "purpose": "reference_based_simplified_structure_reconstruction",
+  "accuracy": "estimated_not_measured",
+  "reference_date": "2026-10-23",
+  "units": "mm",
+  "nominal_body": {
+    "width": 78,
+    "height": 163.4,
+    "depth": 8.75
+  },
+  "source": "https://support.apple.com/en-my/124264",
+  "geometry_notes": "Blender 原生结构重建；内部尺寸、孔位、排线、板级元件及隐藏表面均为估算或示意。非实测 CAD。",
+  "components": [
+    {
+      "id": "display",
+      "name": "显示屏组件",
+      "description": "显示屏位于整机正面，包括玻璃、OLED 面板与显示排线。展开后可从背面观察金属支撑层。",
+      "accuracy": "estimated",
+      "estimate": "屏幕圆角、玻璃厚度、排线和灵动岛几何为近似；壁纸为项目自制。",
+      "service_part_reference": "661-56050",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "display_adhesive",
+      "name": "显示屏胶条",
+      "description": "沿机身边缘布置的显示屏密封胶条，位于屏幕与机壳之间。",
+      "accuracy": "estimated",
+      "estimate": "胶条宽度、厚度与局部缺口为示意。",
+      "service_part_reference": "923-12860",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "battery",
+      "name": "电池与金属托盘",
+      "description": "实体 SIM 版本电池与支撑托盘作为同一个维修组件展示。托盘覆盖大部分内部区域，移开后可看到主板与电池腔。",
+      "accuracy": "estimated",
+      "estimate": "托盘轮廓依据 pSIM 照片简化；电芯厚度、托盘开孔、紧固点和隐藏表面为估算。",
+      "service_part_reference": "661-56049",
+      "source": "https://support.apple.com/en-my/123387"
+    },
+    {
+      "id": "rear_camera",
+      "name": "后置摄像头组件",
+      "description": "后置摄像头组件位于机身上方一侧，包含主摄、超广角和长焦模块。镜头朝向背面，正面可见的是模块外壳与屏蔽层。",
+      "accuracy": "estimated",
+      "estimate": "各模块外壳、镜头尺寸、棱镜内部和柔性排线均为近似，不模拟光学结构。",
+      "service_part_reference": "661-56052",
+      "source": "https://support.apple.com/en-my/123388"
+    },
+    {
+      "id": "front_camera",
+      "name": "前置摄像头组件",
+      "description": "前置摄像头组件位于顶部，包含前置成像与面容识别相关组件。",
+      "accuracy": "estimated",
+      "estimate": "传感器、孔位和模组厚度均为简化估算。",
+      "service_part_reference": "661-56051",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "logic_board",
+      "name": "主板组件",
+      "description": "主板位于电池托盘下方，连接摄像头、屏幕、供电与其他组件。此模型采用国行主板分支，不加入美版毫米波组件。",
+      "accuracy": "estimated",
+      "estimate": "主板轮廓与屏蔽罩经简化；芯片、焊盘和板级元件位置仅作示意，不是 PCB 布局图。",
+      "service_part_reference": "CH 系列 · 容量未指定",
+      "source": "https://support.apple.com/en-my/123395"
+    },
+    {
+      "id": "top_speaker",
+      "name": "顶部扬声器",
+      "description": "顶部扬声器位于上方角部，与顶部声学开口配合工作。",
+      "accuracy": "estimated",
+      "estimate": "腔体外形、内部结构和尺寸经简化。",
+      "service_part_reference": "923-13581",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "bottom_speaker",
+      "name": "底部扬声器",
+      "description": "实体 SIM 版本的底部扬声器位于机身下方一侧，通过底边声孔发声。",
+      "accuracy": "estimated",
+      "estimate": "腔体、胶垫、支架和声道为近似。",
+      "service_part_reference": "923-13580",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "taptic_engine",
+      "name": "Taptic Engine",
+      "description": "触觉反馈组件位于机身底部，产生系统交互所需的振动反馈。",
+      "accuracy": "estimated",
+      "estimate": "外壳轮廓参考官方内部图；厚度、孔位和内部振子结构未实测。",
+      "service_part_reference": "923-13583",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "main_microphone",
+      "name": "主麦克风",
+      "description": "主麦克风位于底边，配合密封垫和声学开口采集声音。",
+      "accuracy": "estimated",
+      "estimate": "封装、支架、声孔与排线为示意。",
+      "service_part_reference": "923-13582",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "usb_c_connector",
+      "name": "USB-C 接口组件",
+      "description": "USB-C 接口位于底边中央，接口与两条上行排线组成独立组件。",
+      "accuracy": "estimated",
+      "estimate": "金属壳、触点、排线走向与折弯半径均为简化估算。",
+      "service_part_reference": "pSIM · 923-13585/86/87",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "sim_assembly",
+      "name": "实体 SIM 组件",
+      "description": "国行双 nano-SIM 对应的实体 SIM 组件位于机身侧部，保留独立卡托。",
+      "accuracy": "estimated",
+      "estimate": "组件与卡槽形状、内部触点及位置深度为估算。",
+      "service_part_reference": null,
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "sim_tray",
+      "name": "SIM 卡托",
+      "description": "卡托从侧面抽出；与实体 SIM 组件分开建模。",
+      "accuracy": "estimated",
+      "estimate": "卡槽与卡托孔位、尺寸和细节为近似。",
+      "service_part_reference": "923-13650/51/52",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "enclosure",
+      "name": "铝金属机壳",
+      "description": "一体式铝金属机壳承载内部组件，背部顶部为横向摄像头平台。侧边保留操作按钮、音量键与相机控制的简化外形。",
+      "accuracy": "estimated",
+      "estimate": "标称长宽厚来自官方规格；圆角、平台高度、局部开口、螺丝柱、热管理细节为估算。",
+      "service_part_reference": "国行 CH923-13782/83/84",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "back_glass",
+      "name": "背部玻璃与充电组件",
+      "description": "背部玻璃位于机壳后侧的下方区域。此视图将无线充电线圈、磁吸环等归入背部组件展示。",
+      "accuracy": "estimated",
+      "estimate": "玻璃轮廓、内部线圈、磁吸环、连接排线及其相对位置均为简化示意。",
+      "service_part_reference": "661-56053/54/55",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "back_glass_adhesive",
+      "name": "背部玻璃胶条",
+      "description": "背部玻璃与机壳之间的周边密封胶条。",
+      "accuracy": "estimated",
+      "estimate": "胶条宽度与厚度为近似。",
+      "service_part_reference": "923-12859",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "display_connector_cowling",
+      "name": "显示屏连接器盖板",
+      "description": "覆盖显示屏排线连接器的保护盖板。",
+      "accuracy": "estimated",
+      "estimate": "盖板厚度、孔位和轮廓均为简化。",
+      "service_part_reference": "923-13592",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "battery_connector_cowling",
+      "name": "电池连接器盖板",
+      "description": "固定和保护电池排线连接位置的盖板。",
+      "accuracy": "estimated",
+      "estimate": "盖板、折弯与孔位均为示意。",
+      "service_part_reference": "923-13994",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "camera_connector_cowling",
+      "name": "后摄连接器盖板",
+      "description": "覆盖后置摄像头排线连接器的金属盖板。",
+      "accuracy": "estimated",
+      "estimate": "外形、厚度与紧固孔位置为近似。",
+      "service_part_reference": "923-13705",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "front_camera_connector_cowling",
+      "name": "前摄连接器盖板",
+      "description": "覆盖前置摄像头连接器的金属盖板。",
+      "accuracy": "estimated",
+      "estimate": "外形、厚度与紧固孔位置为近似。",
+      "service_part_reference": "923-13704",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "logic_board_connector_cowling",
+      "name": "主板连接器盖板",
+      "description": "主板连接器区域的保护盖板。",
+      "accuracy": "estimated",
+      "estimate": "轮廓、折弯、孔位为示意。",
+      "service_part_reference": "923-13593",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "back_glass_connector_cowling",
+      "name": "背板连接器盖板",
+      "description": "背部玻璃组件与主板连接位置的盖板。",
+      "accuracy": "estimated",
+      "estimate": "位置深度、尺寸与孔位为估算。",
+      "service_part_reference": "923-13702",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "top_speaker_grille",
+      "name": "顶部扬声器格栅",
+      "description": "顶部声学开口内的格栅。",
+      "accuracy": "estimated",
+      "estimate": "格栅孔径、间距、层数和厚度为示意。",
+      "service_part_reference": "923-13653",
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "battery_spacer",
+      "name": "电池间隔件",
+      "description": "电池与周边结构之间的间隔支撑件。",
+      "accuracy": "estimated",
+      "estimate": "局部位置和形状参照通用爆炸图，国行适配细节尚未实物核验。",
+      "service_part_reference": null,
+      "source": "https://support.apple.com/en-my/124264"
+    },
+    {
+      "id": "logic_board_spacer",
+      "name": "主板间隔件",
+      "description": "主板区域的间隔与定位支撑件。",
+      "accuracy": "estimated",
+      "estimate": "轮廓、厚度与装配间隙为估算。",
+      "service_part_reference": null,
+      "source": "https://support.apple.com/en-my/124264"
+    }
+  ],
+  "authoring_tool": "Blender 5.2.3 via Blender MCP",
+  "model_file": "models/iphone17-pro-max-a3527-button-fix.glb",
+  "local_only": true,
+  "revision": "v4.5",
+  "native_seed": "blender/phone.blend"
+}
