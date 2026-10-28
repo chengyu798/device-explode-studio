@@ -10,10 +10,11 @@ const url=option('--url','http://127.0.0.1:4173/');const out=path.resolve(option
 const mod=process.env.PLAYWRIGHT_MODULE;
 const {chromium}=await import(mod?(path.isAbsolute(mod)?pathToFileURL(mod).href:mod):'playwright');
 const browser=await chromium.launch({headless:true,...(process.env.BROWSER_EXECUTABLE?{executablePath:process.env.BROWSER_EXECUTABLE}:{})});
-const errors=[],external=[];let report;
+const errors=[],external=[],legacyRequests=[];let report;
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,reducedMotion:'reduce'});
  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+ page.on('request',req=>{if(/\.(glb|gltf)(?:$|[?#])/i.test(req.url()))legacyRequests.push(req.url())});
  const origin=new URL(url).origin;
  await page.route('**/*',route=>{const u=route.request().url();if(/^https?:/.test(u)&&new URL(u).origin!==origin){external.push(u);return route.abort();}return route.continue();});
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
@@ -22,12 +23,19 @@ try{
  assert.equal(initial.finish,'silver');assert.equal(initial.explosion,0);assert.equal(initial.visible.length,25);
  const palettes=JSON.parse(await fs.readFile(path.join(root,'dist/data/finish-palettes.json'),'utf8'));
  const cfg=JSON.parse(await fs.readFile(path.join(root,'profile.json'),'utf8'));
- const rays=await page.evaluate(async specs=>{
-  const {loadBlenderModel}=await import('./load-blender.js');const THREE=await import('three');const m=await loadBlenderModel();m.root.updateMatrixWorld(true);
+ const rays=await page.evaluate(async config=>{
+  const specs=config.controls;
+  const {loadPhoneModel}=await import('./load-model.js');const THREE=await import('three');const m=await loadPhoneModel();m.root.updateMatrixWorld(true);
   const controls=specs.map(s=>{const hit=new THREE.Raycaster(new THREE.Vector3(s.side*60,s.y_mm,0),new THREE.Vector3(-s.side,0,0)).intersectObject(m.root,true)[0];return{expected:'I17_'+s.name+(s.name==='China_Dual_SIM_Tray'?'_Cap':'_Rounded_Button'),actual:hit?.object.name,x:hit?.point.x,expected_x:s.side*s.outer_x_mm,role:hit?.object.material.userData.finishRole};});
   const logos=[];m.root.traverse(o=>{if(o.isMesh&&/Silver_Logo_Inlay/.test(o.material.name)){const position=o.geometry.getAttribute('position');const index=o.geometry.index;const i=index?index.getX(0):0;const j=index?index.getX(1):1;const k=index?index.getX(2):2;const center=new THREE.Vector3().fromBufferAttribute(position,i).add(new THREE.Vector3().fromBufferAttribute(position,j)).add(new THREE.Vector3().fromBufferAttribute(position,k)).divideScalar(3).applyMatrix4(o.matrixWorld);const ray=new THREE.Raycaster(center.clone().add(new THREE.Vector3(0,0,-10)),new THREE.Vector3(0,0,1));const hit=ray.intersectObject(m.root,true)[0];logos.push({expected:o.name,actual:hit?.object.name});}});
-  m.root.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});return{controls,logos};
- },cfg.controls);
+  const body=m.root.getObjectByName(config.body);if(!body)throw new Error('Missing audited body');
+  function clear(x){const hit=new THREE.Raycaster(new THREE.Vector3(x,-90,0),new THREE.Vector3(0,1,0)).intersectObject(body,true)[0];return !hit||hit.point.y>-78;}
+  const intervals=[];let previous=false,start;
+  for(let i=0;i<=2400;i++){const x=-30+i*.025,opened=clear(x);if(opened&&!previous)start=x;else if(previous&&!opened)intervals.push({center:(start+x-.025)/2,width:x-start});previous=opened;}
+  const screws=config.screw_x_mm.map(x=>({x,clear:[[0,0],[.4,0],[-.4,0],[0,.4],[0,-.4]].every(([dx,dz])=>{const hit=new THREE.Raycaster(new THREE.Vector3(x+dx,-90,dz),new THREE.Vector3(0,1,0)).intersectObject(body,true)[0];return !hit||hit.point.y>-81.4})}));
+  m.root.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});return{controls,logos,intervals,screws};
+ },cfg);
+ assert.equal(rays.intervals.length,13);const centers=[...cfg.acoustic_x_mm,0].sort((a,b)=>a-b);rays.intervals.forEach((m,i)=>{assert.ok(Math.abs(m.center-centers[i])<.04);assert.ok(Math.abs(m.width-(centers[i]===0?9:1.53))<.05)});assert.ok(rays.screws.every(s=>s.clear));
  for(const r of rays.controls){assert.equal(r.actual,r.expected);assert.ok(Math.abs(r.x-r.expected_x)<.002)}
  assert.ok(rays.logos.length>=2,'Missing logo body or leaf');for(const r of rays.logos)assert.equal(r.actual,r.expected,'Logo occluded from rear');
  const finishes={};
@@ -50,8 +58,8 @@ try{
  await page.setViewportSize({width:390,height:844});await page.locator('#right-view').click();await page.waitForTimeout(180);assert.equal((await snap()).visible.length,25);assert.ok(await page.locator('canvas').first().isVisible());assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mobile horizontal overflow');await page.screenshot({path:path.join(out,'mobile.png'),fullPage:true});
  await page.setViewportSize({width:1440,height:1000});
  for(const name of ['button-audit.html','finish-audit.html']){await page.goto(new URL(name,url).href,{waitUntil:'networkidle'});assert.equal(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||!i.naturalWidth).length),0);}
- assert.deepEqual(external,[],'Unexpected network dependencies');assert.deepEqual(errors,[]);
- report={passed:true,components:25,default_assembled:true,finishes,frontmost_control_rays:rays.controls,logo_rays:rays.logos,silver_roundtrip:true,explode_isolate_hide_search_reset:true,png_export:true,mobile:true,audit_images_loaded:true,external_requests:external,page_errors:errors};
+ assert.deepEqual(legacyRequests,[],'Legacy GLB/GLTF dependency');assert.deepEqual(external,[],'Unexpected network dependencies');assert.deepEqual(errors,[]);
+ report={passed:true,components:25,default_assembled:true,finishes,bottom_openings:rays.intervals,screw_recess:rays.screws,legacy_model_requests:legacyRequests,frontmost_control_rays:rays.controls,logo_rays:rays.logos,silver_roundtrip:true,explode_isolate_hide_search_reset:true,png_export:true,mobile:true,audit_images_loaded:true,external_requests:external,page_errors:errors};
  console.log(JSON.stringify({passed:true,components:25,colors:3,roles_per_color:7,controls:rays.controls.length,logos:rays.logos.length,mobile:true,page_errors:errors}));
 }catch(e){report={passed:false,error:e.stack,page_errors:errors,external_requests:external};throw e;}
 finally{if(report)await fs.writeFile(path.join(out,'browser.json'),JSON.stringify(report,null,2)+'\n');await browser.close();}

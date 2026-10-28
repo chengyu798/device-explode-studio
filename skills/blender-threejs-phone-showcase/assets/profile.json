@@ -1,7 +1,7 @@
 {
-  "id": "iphone17-a3527-v4.5",
+  "id": "iphone17-a3527-native-v5",
   "scene": "iPhone 17 Pro Max | A3527 Remodel",
-  "model_file": "iphone17-pro-max-a3527-button-fix.glb",
+  "model_file": "phone.scene.json.gz",
   "component_count": 25,
   "collections": [
     "I17_01_Assemblies",
@@ -68,5 +68,6 @@
       "y_mm": -45.885,
       "outer_x_mm": 39.03
     }
-  ]
+  ],
+  "units": "millimetres"
 }

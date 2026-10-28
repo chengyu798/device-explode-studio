@@ -1,59 +1,46 @@
 ---
 name: blender-threejs-phone-showcase
-description: 使用 Blender 和 Three.js 制作、迭代或复现本地手机展示网页，包含真实感外观、三色材质、零件选择与拆解交互。附带已验收的 iPhone 17 Pro Max A3527 v4.5 模型和网页模板；适用于需要保留建模细节并验证导出效果的任务。
+description: 使用纯 Three.js 制作、修改或复现本地手机展示与拆解网页，不依赖 Blender、GLB 或 GLTFLoader。附带 iPhone 17 Pro Max A3527 已验收网格数据、三色材质、交互模板和验证脚本；也指导使用 Three.js 几何体为新机型建模。
 ---
 
-# Blender 手机展示网页
+# Three.js 手机展示网页
 
-交付可本地运行的网页、可编辑 Blender 模型，以及能指出失败部位的验证报告。默认本地预览；上传源码、发布网站分别遵循用户当次授权。
+旧名称为兼容已安装调用保留；当前 v5 工作流不需要 Blender，也不使用 GLB。交付本地网页、可编辑的 Three.js 场景数据或建模代码、实际验证报告。默认本地运行；代码上传与网页发布分别遵循用户授权。
 
-## 选择起点
+## 选择工作方式
 
-- **复现当前 iPhone 效果**：使用随附 v4.5 种子和模板，不必重放历史修补脚本。
-- **修改这款手机**：先复现，在输出副本上通过可用的 Blender MCP 或 Blender Python 修改，再导出、验证。
-- **换手机或从照片建模**：先读 [建模与真实感流程](references/modeling-workflow.md)。模板仅提供交互框架；尺寸、组件、色板、命名和检查配置都要适配。不要承诺仅凭几张照片得到实测 CAD。
+- **复现当前手机**：复用随附的原生 Three.js 网格快照，保留已验收细节。它最初从 v4.5 模型迁移，当前生成和运行不需要原始 Blender/GLB。
+- **修改当前手机**：用 `ObjectLoader.parseAsync` 读取原生场景，在 Three.js 中修改节点、BufferGeometry 或材质，再以 `root.toJSON()` 保存。配置和数据格式见 [原生场景流程](references/native-workflow.md)。
+- **从零制作另一款手机**：依据尺寸和照片，用 Shape、ExtrudeGeometry、LatheGeometry、BufferGeometry 建模。先读 [原生场景流程](references/native-workflow.md)；内构缺少测量资料时必须标注估算。当前网格不是参数化 CAD，换数据格式不等于从零建模已验证。
 
-## 复现并修改
+## 生成和预览
 
-将下列 `SKILL` 替换为本 skill 所在目录。路径可能含空格，保留引号。
+将 SKILL 替换为本目录，输出路径必须不存在：
 
 ```sh
 python3 "$SKILL/scripts/create_project.py" --output "/absolute/path/phone-project"
-```
-
-输出目录必须不存在。生成 `dist/`、`blender/phone.blend`、便携导出与网页检查脚本。资源均本地提供；直接使用网页不需要安装 npm 依赖。
-
-模型有改动时，在输出项目执行（`BLENDER` 为实际 Blender 可执行文件）：
-
-```sh
-"$BLENDER" --background blender/phone.blend --python scripts/export_model.py -- --project .
-```
-
-导出器检查机壳、按键、底部真实开孔、装配和展开状态，输出 GLB 与 `qa/geometry.json`，不覆盖 `.blend`。使用 MCP 修改完成后，应先另存原生模型副本，再把它作为导出输入。不要把导出器当通用任意模型转换器：当前配置校验的是 A3527。
-
-预览：
-
-```sh
+cd /absolute/path/phone-project
 python3 scripts/serve.py --port 4173
 ```
 
-打开 `http://127.0.0.1:4173/`。ES modules 和 GLB fetch 需要本地 HTTP；不要用 `file://` 打开。若端口占用，用其他端口，勿关闭用户的其他服务。
+打开 http://127.0.0.1:4173/ 。预览资源全在本地，不需要 npm 安装。Python 只负责复制文件和本地 HTTP，也可使用其他静态服务器；浏览器直接 file:// 打开无法正常 fetch。当前使用 WebGL 2、DecompressionStream 和本地 Three.js 0.186.1。
 
-## 保持效果的关键条件
+场景数据 `dist/models/phone.scene.json.gz` 是标准 gzip 压缩的 Three.js Object3D JSON，不是改后缀的 GLB；gzip 解压后可直接编辑顶点、法线、索引、材质和层级。`ObjectLoader` 重建 Mesh/BufferGeometry，坐标已是毫米、+Y 向上、+Z 屏幕正面，不要再次乘1000。
 
-- Blender 以米建模，+Y 指向顶部，+Z 指向屏幕；GLB `export_yup=False`。查看器只把网格和节点位移转换一次至毫米。
-- 从配置白名单集合导出，排除任何 Archive 集合、摄影棚、相机和灯光。每个可拆组件有唯一 `component_id` 和 `explode_offset_mm`；25 个组件的展开由网页驱动。
-- 机壳封闭、封闭按键正体积、可见键面向外；不能以整体双面渲染掩盖反面。Logo 薄片保留独立可见性。当前按键及孔位数值见 [A3527 配置依据](references/a3527-profile.md)。
-- 镜筒空心，盖片、透镜、遮光腔分离。平面端盖不用球面平滑法线。无 UV 的实时材质禁用各向异性；Blender 原生程序微纹理保留。不要追求和 Cycles 完全相同的材质节点。
-- 七类配色集中在 `dist/data/finish-palettes.json`：机身、背板、镜筒、镜圈、Logo、天线、相机控制键。镜片、闪光灯、LiDAR、接口和螺丝保持其独立材质。光照、色彩空间和材质必须一起检查。
+## 保留质量
 
-## 验证与交付
+组件保留唯一 component_id 与 explode_offset_mm，当前25组。材质按七个语义角色匹配，不给镜片/闪光灯/LiDAR统一染色。按键向外、盖片与密封圈同心、Logo背面可见，不能靠全局双面渲染掩盖反面。镜筒保持空心；避免在平面上使用球面平滑法线。无 UV 的各向异性关闭。
 
-1. 导出后运行 `npm install`、`npx playwright install chromium`（已有 Playwright 时可复用），然后 `npm run verify -- --url http://127.0.0.1:4173/`。也可用 `PLAYWRIGHT_MODULE` 指定已安装模块，`BROWSER_EXECUTABLE` 指定 Chrome。
-2. 检查生成的 `qa/browser.json`、三色背面/底部/侧面截图、展开截图。测试验证真实单面网格射线先命中键帽，核对七类配色、银色切换还原、拆解/单独查看/隐藏/搜索/复位、图片导出、窄屏和无外部资源请求。几何报告负责孔位与网格结构，截图负责观感；通过一类不代表另一类通过。
-3. 与已验收网页同一浏览器、视口和灯光对照。复现模式应保持模型与模板；新建模模式必须人工核对正、背、左、右、底和镜头近景。说明内部估算及未校准配色。不得把复制现成资产的通过结果说成从零建模已验证。
-4. 交付本地地址、原生文件、GLB 和实际检查结果。用户要求上传时，上传新项目与 skill，保留 Three.js 许可，排除缓存、凭据和历史备份；仅在用户要求时发布网站。
+新机型需同时适配 profile.json、model.js 的组件数据、load-model.js 的组件数量约束、相机取景、色板及检查坐标。A3527 的数值依据见 [机型基线](references/a3527-profile.md)。内部几何仍为估算，不承诺实测 CAD。
 
-已完成的复现检查见 [验证记录](references/validation.md)。
+## 验证并交付
 
-当前可复现的质量来自随附原生种子、GLB、材质和网页共同组成的基线。只有这些资产与配置一起使用，才能稳定达到当前已验收效果；从零生成另一款手机仍需要参考资料与建模迭代。
+```sh
+npm install
+npx playwright install chromium
+npm run verify -- --url http://127.0.0.1:4173/
+```
+
+已有 Playwright 可用 PLAYWRIGHT_MODULE 指定模块，BROWSER_EXECUTABLE 指定 Chrome。检查 qa/browser.json 和截图：25组件、三色七类材质、六个键帽/卡托的可见射线、Logo、展开/隔离/隐藏/搜索/复位、PNG和窄屏。测试拒绝外部运行资源和 GLB/GLTF 请求。改几何后还需检查底部孔位、网格朝向与近景；旧报告不能代替新检查。
+
+复现模式与已验收截图使用同浏览器、视口、灯光对照。交付实际差异，不把加载成功说成外观等同，也不把快照复现说成新模型从零生成。历史验证与当前版本界限见 [验证记录](references/validation.md)。上传时保留 LICENSE 和 THIRD_PARTY_NOTICES.md，不发布网站，除非用户明确要求。

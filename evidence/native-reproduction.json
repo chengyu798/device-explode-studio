@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "format": "Three.js Object3D JSON gzip",
+  "no_blender_required": true,
+  "no_glb_required": true,
+  "source": "Migrated accepted v4.5 mesh snapshot; not procedural reconstruction",
+  "views": [
+    {
+      "view": "silver-right.png",
+      "mean_error": 0.0008518518518518519,
+      "fraction_over_8": 2.8472222222222223e-05
+    },
+    {
+      "view": "orange-back.png",
+      "mean_error": 0.1268550925925926,
+      "fraction_over_8": 0.005838888888888889
+    },
+    {
+      "view": "orange-bottom.png",
+      "mean_error": 0.0058453703703703706,
+      "fraction_over_8": 0.00014166666666666668
+    },
+    {
+      "view": "blue-right.png",
+      "mean_error": 0.0008233796296296296,
+      "fraction_over_8": 2.8472222222222223e-05
+    },
+    {
+      "view": "silver-back.png",
+      "mean_error": 0.14356828703703703,
+      "fraction_over_8": 0.005838888888888889
+    },
+    {
+      "view": "mobile.png",
+      "mean_error": 0.0038324237119417843,
+      "fraction_over_8": 9.78272062609412e-05
+    },
+    {
+      "view": "exploded.png",
+      "mean_error": 0.023122453703703704,
+      "fraction_over_8": 0.0004611111111111111
+    },
+    {
+      "view": "blue-back.png",
+      "mean_error": 0.1058537037037037,
+      "fraction_over_8": 0.005778472222222222
+    },
+    {
+      "view": "orange-right.png",
+      "mean_error": 0.0008344907407407408,
+      "fraction_over_8": 2.8472222222222223e-05
+    },
+    {
+      "view": "silver-left.png",
+      "mean_error": 0.0011863425925925926,
+      "fraction_over_8": 3.4027777777777775e-05
+    },
+    {
+      "view": "silver-bottom.png",
+      "mean_error": 0.005851851851851852,
+      "fraction_over_8": 0.00014166666666666668
+    },
+    {
+      "view": "blue-bottom.png",
+      "mean_error": 0.005808564814814815,
+      "fraction_over_8": 0.00014166666666666668
+    }
+  ],
+  "threshold_mean_error": 1,
+  "threshold_fraction_over_8": 0.02,
+  "ui_difference": "Footer version changes to v5.0",
+  "generated_project_contains_no_blend_or_glb": true,
+  "legacy_model_requests": [],
+  "native_geometry_check": "native-geometry.json"
+}

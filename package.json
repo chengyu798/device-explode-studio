@@ -1,14 +1,15 @@
 {
   "name": "device-explode-studio",
-  "version": "4.5.0",
+  "version": "5.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "python3 scripts/serve.py",
     "verify": "node scripts/verify.mjs",
-    "check": "node --check dist/app.js && node --check dist/load-blender.js && node --check scripts/verify.mjs"
+    "check": "node --check dist/app.js && node --check dist/load-model.js && node --check scripts/verify.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"
-  }
+  },
+  "license": "MIT"
 }

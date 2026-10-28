@@ -1,42 +1,36 @@
 # Device Explode Studio
 
-本地 Blender + Three.js 手机展示与拆解。当前为 iPhone 17 Pro Max A3527（国行双 nano-SIM）v4.5，含银、橙、蓝三色，25 个可选择组件。
+纯 Three.js 手机展示与拆解，v5.0。当前模型：iPhone 17 Pro Max A3527 国行双 nano-SIM，三色、25个组件。生成和运行无需 Blender、GLB 或 GLTFLoader。
 
-![当前银色外观](evidence/silver-back.png)
+![银色外观](evidence/silver-back.png)
 
-## 复现验证
-
-复现 GLB 与当前 v4.5 逐字节一致，12 个视图与当前网页逐像素一致；25 组件、三色材质、按键、Logo、底孔和交互检查通过。[验证摘要](evidence/reproduction.json) · [网页检查](evidence/browser.json) · [几何检查](evidence/geometry.json)。这是随附模型与模板的复现验证；其他机型仍需要重新建模。
-
-## 本地运行
+## 运行
 
 ```sh
 python3 scripts/serve.py
 ```
 
-浏览器打开 http://127.0.0.1:4173/ 。所有运行资源已打包，无需 npm 或 CDN；不要使用 file://。
+打开 http://127.0.0.1:4173/ 。所有运行资源本地打包，无需 npm 或 CDN。需现代 WebGL2 浏览器和本地 HTTP，不用 file://。
 
-## 修改与验证
+## 数据与修改
 
-使用 Blender 5.2.3 LTS 打开 `blender/phone.blend`，在副本上修改并保存。然后从项目目录执行：
+`dist/models/phone.scene.json.gz` 是 gzip 压缩的 Three.js Object3D JSON，`dist/load-model.js` 使用 ObjectLoader 读取。坐标已为毫米。它是从此前已验收模型迁移的网格快照，保留当前细节，不是参数化 CAD，也不是从零自动生成新机型。可以直接编辑解压的顶点/法线/材质/节点，或用 Three.js Shape、ExtrudeGeometry、LatheGeometry、BufferGeometry 重建新部件，保存 root.toJSON() 后再gzip压缩。
+
+`dist/data/finish-palettes.json` 管理七类配色。支持展开、选择、隐藏、隔离、搜索、视图切换和PNG下载。
+
+## Skill 和检查
+
+复制 `skills/blender-threejs-phone-showcase` 到 `~/.codex/skills/`，调用 `$blender-threejs-phone-showcase`。名称为兼容旧调用保留，内容已改为原生 Three.js 工作流。
 
 ```sh
-blender --background blender/phone.blend --python scripts/export_model.py -- --project .
+python3 skills/blender-threejs-phone-showcase/scripts/create_project.py --output /absolute/path/new-phone-project
 npm install
 npx playwright install chromium
 npm run verify
 ```
 
-macOS 可把 `blender` 替换为 `/Applications/Blender.app/Contents/MacOS/Blender`。导出器只写 GLB 与 `qa/geometry.json`，不覆盖原生模型。网页检查输出 `qa/browser.json` 与截图；可用 `--url` 和 `--out` 指定地址/证据目录，`PLAYWRIGHT_MODULE` 指向现有 Playwright 模块，`BROWSER_EXECUTABLE` 指定现有 Chrome。
+生成器不会覆盖已有目录，输出中不含 .blend、.glb 或 Blender导出器。网页检查在 qa/ 生成报告和截图；用 --url / --out 指定位置，PLAYWRIGHT_MODULE 和 BROWSER_EXECUTABLE 可复用已安装环境。证据见 evidence/，其中 geometry.json 和旧 reproduction.json 为 v4.5 历史来源记录，当前原生路径验证以 native-reproduction.json 和 browser.json 为准。
 
-默认装配；支持拖动、缩放、展开、分层预设、零件选择/隐藏/单独查看、搜索、正背左右底视图、配色和 PNG 导出。`finish-audit.html`、`button-audit.html` 是参考对照页，不代替本次浏览器截图。
+## 许可与精度
 
-## 复用 skill
-
-如果项目包含 `skills/blender-threejs-phone-showcase`，复制该目录到 `~/.codex/skills/`，在 Codex 中调用 `$blender-threejs-phone-showcase`。skill 内含独立模板、原生种子及生成/验证脚本，可生成到新的绝对路径。重复生成不会覆盖已有目录。
-
-## 模型依据与限制
-
-外观参照 Apple 外形尺寸图与用户照片。底部为 12 个声学孔（左右6+6，Ø1.53 mm）、9.00×3.12 mm USB-C 和两颗螺丝；机械键有向外表面与0.45 mm建模凸起。内部几何、排线、板级元件、镜片内部为估算或视觉示意，不是实测 CAD，不是维修指南。配色为视觉匹配，未作仪器校准。来源见 `dist/data/model-notes.json` 与网页资料面板。
-
-网页默认仅在本地运行；上传源码不会发布网站。Three.js 采用 MIT 许可，完整许可位于 `dist/vendor/THREE-LICENSE.txt`。本项目未另行授予 Apple 标志、产品图片或其他第三方资料的许可。
+项目代码及项目自建重建网格采用 MIT，见 LICENSE。Three.js许可位于 dist/vendor/THREE-LICENSE.txt。Apple标志、商标、产品设计和参考照片等第三方权利未随项目重新授权，见 THIRD_PARTY_NOTICES.md。内部几何、光学内部和板级元件仍为估算或视觉示意，非实测CAD。公开源码不等于发布网站。

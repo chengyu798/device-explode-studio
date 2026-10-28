@@ -240,9 +240,9 @@
       "source": "https://support.apple.com/en-my/124264"
     }
   ],
-  "authoring_tool": "Blender 5.2.3 via Blender MCP",
-  "model_file": "models/iphone17-pro-max-a3527-button-fix.glb",
+  "authoring_tool": "Three.js native scene workflow; geometry migrated from the accepted v4.5 reconstruction",
+  "model_file": "models/phone.scene.json.gz",
   "local_only": true,
-  "revision": "v4.5",
-  "native_seed": "blender/phone.blend"
+  "revision": "v5.0",
+  "runtime_format": "Three.js Object3D JSON, gzip compressed; millimetres"
 }

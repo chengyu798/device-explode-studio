@@ -1,0 +1,120 @@
+{
+  "bottom_openings": [
+    {
+      "center": -23.575,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": -21.349999999999998,
+      "width": 1.5250000000000021
+    },
+    {
+      "center": -19.075,
+      "width": 1.5250000000000021
+    },
+    {
+      "center": -16.825,
+      "width": 1.5250000000000021
+    },
+    {
+      "center": -14.575,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": -12.325,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": -7.112366251504909e-16,
+      "width": 9.024999999999999
+    },
+    {
+      "center": 12.312500000000004,
+      "width": 1.5499999999999972
+    },
+    {
+      "center": 14.575000000000003,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": 16.825000000000003,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": 19.075000000000003,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": 21.325000000000003,
+      "width": 1.5249999999999986
+    },
+    {
+      "center": 23.575000000000003,
+      "width": 1.5249999999999986
+    }
+  ],
+  "screw_recess": [
+    {
+      "x": -6.93,
+      "clear": true
+    },
+    {
+      "x": 6.92,
+      "clear": true
+    }
+  ],
+  "control_rays": [
+    {
+      "expected": "I17_Side_Rounded_Button",
+      "actual": "I17_Side_Rounded_Button",
+      "x": 39.439998626708984,
+      "expected_x": 39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Camera_Control_Rounded_Button",
+      "actual": "I17_Camera_Control_Rounded_Button",
+      "x": 39.05000305175781,
+      "expected_x": 39.05,
+      "role": "control"
+    },
+    {
+      "expected": "I17_Action_Rounded_Button",
+      "actual": "I17_Action_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Volume_Up_Rounded_Button",
+      "actual": "I17_Volume_Up_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_Volume_Down_Rounded_Button",
+      "actual": "I17_Volume_Down_Rounded_Button",
+      "x": -39.439998626708984,
+      "expected_x": -39.44,
+      "role": "metal"
+    },
+    {
+      "expected": "I17_China_Dual_SIM_Tray_Cap",
+      "actual": "I17_China_Dual_SIM_Tray_Cap",
+      "x": -39.029998779296875,
+      "expected_x": -39.03,
+      "role": "metal"
+    }
+  ],
+  "logo_rays": [
+    {
+      "expected": "I17_R3_Photo_Traced_Logo_0",
+      "actual": "I17_R3_Photo_Traced_Logo_0"
+    },
+    {
+      "expected": "I17_R3_Photo_Traced_Logo_1",
+      "actual": "I17_R3_Photo_Traced_Logo_1"
+    }
+  ]
+}

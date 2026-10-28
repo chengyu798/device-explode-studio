@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/OrbitControls.js';
 import { createStudioEnvironment } from './studio-environment.js';
 import { applyExplosion, COMPONENTS, BODY, SOURCE } from './model.js';
-import { loadBlenderModel } from './load-blender.js';
+import { loadPhoneModel } from './load-model.js';
 import { applyFinish } from './finishes.js';
 
 const $=s=>document.querySelector(s);
@@ -32,7 +32,7 @@ async function start(){
   const camera=new THREE.PerspectiveCamera(35,1,25,2500);
   camera.position.set(-150,85,-650);
   const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.075;controls.minDistance=180;controls.maxDistance=1600;controls.autoRotateSpeed=.5;controls.enablePan=true;controls.target.set(0,0,35);
-  const model=await loadBlenderModel();scene.add(model.root);const parts=model.parts;
+  const model=await loadPhoneModel();scene.add(model.root);const parts=model.parts;
   applyFinish(model.finishMaterials,'silver');
   const state={target:0,current:0,selected:null,isolated:false,hidden:new Set(),labels:true,finish:'silver'};
   const raycaster=new THREE.Raycaster();const pointer=new THREE.Vector2();const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
